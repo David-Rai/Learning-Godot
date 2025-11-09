@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgs1uksvda3tj"]
+
+[ext_resource type="Script" uid="uid://c7whvvsy0o4y4" path="res://scenes/practise.gd" id="1_c7rst"]
+[ext_resource type="Script" uid="uid://cxkwrxaqabkyt" path="res://scenes/hp_label.gd" id="2_c7rst"]
+
+[node name="main" type="Node2D" node_paths=PackedStringArray("player_node")]
+script = ExtResource("1_c7rst")
+player_node = NodePath(".")
+
+[node name="start" type="Button" parent="."]
+offset_left = 512.0
+offset_top = 280.0
+offset_right = 618.0
+offset_bottom = 340.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "start
+"
+
+[node name="increasePower" type="Timer" parent="."]
+
+[node name="stop" type="Button" parent="."]
+offset_left = 651.0
+offset_top = 280.0
+offset_right = 757.0
+offset_bottom = 340.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "stop
+"
+
+[node name="HPlabel" type="Label" parent="."]
+offset_left = 522.0
+offset_top = 377.0
+offset_right = 754.0
+offset_bottom = 400.0
+text = "hp "
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_c7rst")
+
+[connection signal="health_changed" from="." to="." method="_on_health_changed"]
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="timeout" from="increasePower" to="." method="_on_increase_power_timeout"]
+[connection signal="pressed" from="stop" to="." method="_on_stop_pressed"]
