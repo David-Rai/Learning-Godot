@@ -1,9 +1,3 @@
 res://scenes/game.tscn
-res://scenes/player.tscn
-res://scripts/player.gd
-res://scenes/platform.tscn
-res://scenes/coin.tscn
-res://scripts/coin.gd
-res://coin.gd
-res://scenes/killzone.tscn
-res://scenes/killzone.gd
+res://scenes/moving_enemy.tscn
+res://scripts/moving_enemy.gd
