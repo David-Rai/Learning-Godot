@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cohiqpndtgam" path="res://scenes/enemy.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://bn1l2eus6ckwy" path="res://scenes/moving_enemy.tscn" id="7_u5sy4"]
 [ext_resource type="FontFile" uid="uid://crft7xjpq21ha" path="res://assets/fonts/PixelOperator8.ttf" id="8_gee14"]
-[ext_resource type="Script" uid="uid://rluptogy0bmn" path="res://scenes/label_5.gd" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://cfs16pemcah7" path="res://hud.tscn" id="9_0tnpc"]
 
 [sub_resource type="GDScript" id="GDScript_mwb40"]
 script/source = "extends Node2D
@@ -225,18 +225,15 @@ _data = {
 
 [node name="game" type="Node2D"]
 script = SubResource("GDScript_mwb40")
-metadata/_edit_horizontal_guides_ = [83.0]
 
 [node name="player" parent="." instance=ExtResource("1_uwrxv")]
 top_level = true
-position = Vector2(-53, 11)
+position = Vector2(-49, 0)
 
-[node name="camera" type="Camera2D" parent="player"]
-position = Vector2(140, -54)
+[node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(3, 3)
-limit_left = -10000057
-limit_top = -9999999
-limit_right = 9999943
+limit_left = -354
+limit_right = 1060
 limit_bottom = 84
 position_smoothing_enabled = true
 
@@ -385,16 +382,5 @@ theme_override_font_sizes/font_size = 8
 text = "Lets get coins"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label5" type="Label" parent="Texts"]
-offset_left = 113.0
-offset_top = -21.0
-offset_right = 223.0
-offset_bottom = 1.0
-theme_override_colors/font_color = Color(0.076041035, 0.076041035, 0.076041035, 1)
-theme_override_fonts/font = ExtResource("8_gee14")
-theme_override_font_sizes/font_size = 8
-text = "score here"
-script = ExtResource("9_0tnpc")
-metadata/_edit_use_anchors_ = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="HUD" parent="." instance=ExtResource("9_0tnpc")]
+script = null

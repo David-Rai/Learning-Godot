@@ -8,3 +8,8 @@ signal change_score(new_score)
 func increase_score():
 	score += 1
 	emit_signal('change_score',score)	
+
+#reset data
+func reset_score():
+	score=0
+	emit_signal("change_score",score)
