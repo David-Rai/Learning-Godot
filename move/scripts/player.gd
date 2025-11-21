@@ -6,19 +6,18 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $body_image
 
 var direction := Vector2.ZERO
-var can_move=true
-
+	
 func _physics_process(delta: float) -> void:
 	
-	# Get horizontal input only
-	if direction.x > 0:
-		sprite.flip_h=false
-		sprite.play("run")
-	elif direction.x < 0:
-		sprite.flip_h=true
-		sprite.play("run")
-	else:
-		sprite.play('run')
+	if Global.can_move:
+		if direction.x > 0:
+			sprite.flip_h=false
+			sprite.play("run")
+		elif direction.x < 0:
+			sprite.flip_h=true
+			sprite.play("run")
+		else:
+			sprite.play('run')
 		
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	velocity.x = direction.x * speed
