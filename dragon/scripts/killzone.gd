@@ -6,7 +6,6 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	print("someone is dead")
-	Global.toggle_can_move(false)
 	Engine.time_scale=0.5 #slowing the engine
 	countdown.start()
 

@@ -8,16 +8,14 @@ extends CharacterBody2D
 var direction := Vector2.ZERO
 	
 func _physics_process(delta: float) -> void:
-	
-	if Global.can_move:
-		if direction.x > 0:
-			sprite.flip_h=false
-			sprite.play("run")
-		elif direction.x < 0:
-			sprite.flip_h=true
-			sprite.play("run")
-		else:
-			sprite.play('run')
+	if direction.x > 0:
+		sprite.flip_h=false
+		sprite.play("run")
+	elif direction.x < 0:
+		sprite.flip_h=true
+		sprite.play("run")
+	else:
+		sprite.play('run')
 		
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	velocity.x = direction.x * speed
